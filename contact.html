@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — wenlimart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f8f7f4;
+    --fg: #1a1a1a;
+    --muted: #888;
+    --border: #e0ddd8;
+    --tag-bg: #eeece8;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 2rem 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .site-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .site-tagline {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  .content {
+    padding: 5rem 3rem;
+    max-width: 560px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  h1 {
+    font-family: 'DM Mono', monospace;
+    font-size: 1.8rem;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    margin-bottom: 2.5rem;
+  }
+
+  .mail-link {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 1rem;
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--fg);
+    padding-bottom: 2px;
+    margin-bottom: 3rem;
+    transition: opacity 0.2s;
+  }
+
+  .mail-link:hover { opacity: 0.5; }
+
+  .notes {
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+  }
+
+  .notes h2 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+
+  .notes ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .notes li {
+    font-size: 0.82rem;
+    color: var(--fg);
+    line-height: 1.7;
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .notes li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+  }
+
+  footer {
+    margin-top: 4rem;
+    padding: 2rem 3rem;
+    border-top: 1px solid var(--border);
+  }
+
+  footer a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  footer a:hover { color: var(--fg); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 600px) {
+    header, .content, footer { padding-left: 1.2rem; padding-right: 1.2rem; }
+    .content { padding-top: 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="site-title">wenlimart</a>
+  <span class="site-tagline">Try this first.</span>
+</header>
+
+<div class="content">
+  <h1>contact.</h1>
+
+  <a href="mailto:ok@wenlimart.com" class="mail-link">ok@wenlimart.com</a>
+
+  <div class="notes">
+    <h2>note</h2>
+    <ul>
+      <li>返信までお時間をいただく場合があります。</li>
+      <li>掲載素材の使用・転載についてはご相談ください。</li>
+      <li>営業・セールスのご連絡はご遠慮ください。</li>
+      <li>素材のリクエストやフィードバックは歓迎します。</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html">← back</a>
+</footer>
+
+</body>
+</html>

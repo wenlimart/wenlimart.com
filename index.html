@@ -3,10 +3,466 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ウェンリーマート合同会社</title>
+<title>Try this first.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f8f7f4;
+    --fg: #1a1a1a;
+    --accent: #2d2d2d;
+    --muted: #999;
+    --muted2: #bbb;
+    --border: #e0ddd8;
+    --tag-bg: #eeece8;
+    --card-bg: #ffffff;
+    --prompt-bg: #f4f2ee;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+  }
+
+  /* ── Header ── */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 2rem 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .site-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .site-tagline {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  /* ── Hero ── */
+  .hero {
+    padding: 5rem 3rem 3rem;
+    max-width: 760px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  .hero-main {
+    font-family: 'DM Mono', monospace;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--fg);
+  }
+
+  .hero-sub-1 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: #666;
+    margin-top: 1rem;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-sub-2 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--muted2);
+    margin-top: 0.3rem;
+    letter-spacing: 0.01em;
+  }
+
+  /* ── Nav ── */
+  nav {
+    display: flex;
+    padding: 0 3rem;
+    margin-top: 3rem;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  nav::-webkit-scrollbar { display: none; }
+
+  nav a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0.75rem 1.2rem;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.2s, border-color 0.2s;
+    letter-spacing: 0.03em;
+  }
+  nav a:hover { color: var(--fg); }
+  nav a.active { color: var(--fg); border-bottom-color: var(--fg); }
+
+  /* ── Gallery ── */
+  .gallery { padding: 2.5rem 3rem 4rem; }
+
+  .section-block { margin-bottom: 3rem; }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title-line { flex: 1; height: 1px; background: var(--border); }
+
+  .section-title-text {
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: var(--muted);
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+  }
+
+  .section-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--muted2);
+    white-space: nowrap;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.2rem;
+  }
+
+  /* ── Card ── */
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card:nth-child(1) { animation-delay: 0.05s; }
+  .card:nth-child(2) { animation-delay: 0.12s; }
+  .card:nth-child(3) { animation-delay: 0.19s; }
+  .card:nth-child(4) { animation-delay: 0.26s; }
+
+  /* 1: Video */
+  .card-video {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #edeae4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted2);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+
+  .card-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* 2: Prompt */
+  .card-prompt-wrap {
+    padding: 0.8rem 1rem 0;
+  }
+
+  .card-prompt {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--fg);
+    line-height: 1.65;
+    background: var(--prompt-bg);
+    border-radius: 2px;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid transparent;
+    transition: border-color 0.15s;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-prompt.expanded {
+    display: block;
+    overflow: visible;
+  }
+
+  .card-prompt:hover { border-color: var(--border); }
+
+  .expand-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--muted2);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem 0 0;
+    display: block;
+    transition: color 0.15s;
+    user-select: none;
+  }
+  .expand-btn:hover { color: var(--fg); }
+  .expand-btn.hidden { display: none; }
+
+  /* 3: Details (tags + meta in one line, expandable) */
+  .card-details-wrap {
+    padding: 0.5rem 1rem 0.9rem;
+    margin-top: auto;
+  }
+
+  .card-details {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--muted);
+    line-height: 1.7;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    user-select: all;
+  }
+
+  .card-details.expanded {
+    display: block;
+    overflow: visible;
+  }
+
+  .details-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    color: var(--muted2);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.2rem 0 0;
+    display: block;
+    transition: color 0.15s;
+    user-select: none;
+  }
+  .details-btn:hover { color: var(--fg); }
+  .details-btn.hidden { display: none; }
+
+  /* ── Footer ── */
+  footer {
+    padding: 2rem 3rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer span {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--muted2);
+  }
+
+  footer a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  footer a:hover { color: var(--fg); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 600px) {
+    header, nav, .gallery, footer { padding-left: 1.2rem; padding-right: 1.2rem; }
+    .hero { padding: 3rem 1.2rem 2rem; }
+  }
+</style>
 </head>
 <body>
-<h1>ウェンリーマート合同会社</h1>
-<p>準備中</p>
+
+<header>
+  <a href="index.html" class="site-title">wenlimart</a>
+  <span class="site-tagline">Try this first.</span>
+</header>
+
+<div class="hero">
+  <div class="hero-main">Try this first.</div>
+  <div class="hero-sub-1">Before you prompt. Again. And again.</div>
+  <div class="hero-sub-2">— An open catalog of AI-generated samples.</div>
+</div>
+
+<nav>
+  <a href="index.html" class="active">text → video</a>
+  <a href="text-audio.html">text → audio</a>
+  <a href="text-image.html">text → image</a>
+  <a href="image-video.html">image → video</a>
+  <a href="video-video.html">video → video</a>
+  <a href="outtakes.html">outtakes</a>
+  <a href="from-you.html">from you</a>
+  <a href="contact.html">contact</a>
+</nav>
+
+<section class="gallery">
+
+  <!-- Block 1: モデル比較 -->
+  <div class="section-block">
+    <div class="section-title">
+      <div class="section-title-line"></div>
+      <div class="section-title-text">同一プロンプトで各モデルの違いを見る。</div>
+      <div class="section-title-line"></div>
+    </div>
+    <div class="gallery-grid">
+
+      <div class="card">
+        <div class="card-video">no video yet</div>
+        <div class="card-prompt-wrap">
+          <div class="card-prompt" id="p1">a lone astronaut walking on a red desert plain, dust rising with each step, golden hour light</div>
+          <button class="expand-btn" onclick="toggleEl(this,'p1')">... more</button>
+        </div>
+        <div class="card-details-wrap">
+          <div class="card-details" id="d1">Kling 1.6 pro · 5s · 16:9 · #1 · 2025.03.10 · cfg: 0.5 · neg: blurry, watermark · seed: 4829301</div>
+          <button class="details-btn" onclick="toggleEl(this,'d1')">... more</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-video">no video yet</div>
+        <div class="card-prompt-wrap">
+          <div class="card-prompt" id="p2">a lone astronaut walking on a red desert plain, dust rising with each step, golden hour light</div>
+          <button class="expand-btn" onclick="toggleEl(this,'p2')">... more</button>
+        </div>
+        <div class="card-details-wrap">
+          <div class="card-details" id="d2">Runway Gen-3 · 5s · 16:9 · #1 · 2025.03.10 · motion: 5 · same prompt, different model</div>
+          <button class="details-btn" onclick="toggleEl(this,'d2')">... more</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-video">no video yet</div>
+        <div class="card-prompt-wrap">
+          <div class="card-prompt" id="p3">a lone astronaut walking on a red desert plain, dust rising with each step, golden hour light</div>
+          <button class="expand-btn" onclick="toggleEl(this,'p3')">... more</button>
+        </div>
+        <div class="card-details-wrap">
+          <div class="card-details" id="d3">Sora · 5s · 16:9 · #1 · 2025.03.10 · notable difference in dust simulation</div>
+          <button class="details-btn" onclick="toggleEl(this,'d3')">... more</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Block 2: カメラワーク比較 -->
+  <div class="section-block">
+    <div class="section-title">
+      <div class="section-title-line"></div>
+      <div class="section-title-text">カメラワークだけ色々変えてみる。</div>
+      <div class="section-title-line"></div>
+    </div>
+    <div class="gallery-grid">
+
+      <div class="card">
+        <div class="card-video">no video yet</div>
+        <div class="card-prompt-wrap">
+          <div class="card-prompt" id="p4">close-up shot, shallow depth of field, a ceramic cup on a wooden table, morning light</div>
+          <button class="expand-btn" onclick="toggleEl(this,'p4')">... more</button>
+        </div>
+        <div class="card-details-wrap">
+          <div class="card-details" id="d4">Kling 1.6 pro · 5s · #1 · 2025.03.12 · camera: close-up · base scene fixed</div>
+          <button class="details-btn" onclick="toggleEl(this,'d4')">... more</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-video">no video yet</div>
+        <div class="card-prompt-wrap">
+          <div class="card-prompt" id="p5">aerial drone shot, slowly descending, a ceramic cup on a wooden table, morning light</div>
+          <button class="expand-btn" onclick="toggleEl(this,'p5')">... more</button>
+        </div>
+        <div class="card-details-wrap">
+          <div class="card-details" id="d5">Kling 1.6 pro · 5s · #1 · 2025.03.12 · camera: aerial · same scene</div>
+          <button class="details-btn" onclick="toggleEl(this,'d5')">... more</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Block 3: タイトルなし -->
+  <div class="section-block">
+    <div class="section-title">
+      <div class="section-title-line"></div>
+      <div class="section-date">2025.03.15</div>
+      <div class="section-title-line"></div>
+    </div>
+    <div class="gallery-grid">
+
+      <div class="card">
+        <div class="card-video">no video yet</div>
+        <div class="card-prompt-wrap">
+          <div class="card-prompt" id="p6">timelapse of clouds moving over a mountain ridge, dusk to night transition</div>
+          <button class="expand-btn" onclick="toggleEl(this,'p6')">... more</button>
+        </div>
+        <div class="card-details-wrap">
+          <div class="card-details" id="d6">Kling 1.6 · 10s · #2 · 2025.03.15 · retry #2 · first attempt too dark · added "volumetric light"</div>
+          <button class="details-btn" onclick="toggleEl(this,'d6')">... more</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  <span>© wenlimart</span>
+  <a href="text-audio.html">next →</a>
+</footer>
+
+<script>
+  function toggleEl(btn, id) {
+    const el = document.getElementById(id);
+    const isExpanded = el.classList.toggle('expanded');
+    btn.textContent = isExpanded ? '... less' : '... more';
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.card-prompt').forEach(el => {
+      if (el.scrollHeight <= el.clientHeight + 2) {
+        el.nextElementSibling.classList.add('hidden');
+      }
+    });
+    document.querySelectorAll('.card-details').forEach(el => {
+      if (el.scrollHeight <= el.clientHeight + 2) {
+        el.nextElementSibling.classList.add('hidden');
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
