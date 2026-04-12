@@ -232,6 +232,7 @@
     color: var(--muted2);
     margin-top: 0.3rem;
     user-select: none;
+    text-align: right;
   }
 
   .expand-btn {
@@ -323,12 +324,19 @@
 </nav>
 
 <section class="gallery">
+<!--
+  Card ID format: [tab][block][seq]
+  tab:   tv / tp / ti / ta / iv / vv / ot / fy
+  block: 2-digit, descending — higher = newer block (prepended at top)
+  seq:   2-digit, descending — higher = newer card (prepended at left)
+  Gaps are intentional; deleted items are not renumbered.
+-->
 
-  <!-- Block 01: Midjourney -->
+  <!-- Block 03: Midjourney -->
   <div class="section-block">
     <div class="section-title">
       <div class="section-title-line"></div>
-      <div class="section-title-text">01 Midjourney</div>
+      <div class="section-title-text">03 Midjourney</div>
       <div class="section-title-line"></div>
     </div>
     <div class="gallery-grid">
@@ -353,7 +361,7 @@
         </div>
         <div class="card-details-wrap">
           <div class="card-meta">Midjourney v7</div>
-          <div class="card-id">ti0101</div>
+          <div class="card-id">ti0301</div>
         </div>
       </div>
 
@@ -396,11 +404,11 @@
     </div>
   </div>
 
-  <!-- Block 03: DALL·E 3 -->
+  <!-- Block 01: DALL·E 3 -->
   <div class="section-block">
     <div class="section-title">
       <div class="section-title-line"></div>
-      <div class="section-title-text">03 DALL·E 3</div>
+      <div class="section-title-text">01 DALL·E 3</div>
       <div class="section-title-line"></div>
     </div>
     <div class="gallery-grid">
@@ -425,7 +433,7 @@
         </div>
         <div class="card-details-wrap">
           <div class="card-meta">DALL·E 3</div>
-          <div class="card-id">ti0301</div>
+          <div class="card-id">ti0101</div>
         </div>
       </div>
 

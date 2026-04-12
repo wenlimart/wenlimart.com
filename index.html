@@ -297,6 +297,7 @@
     color: var(--muted2);
     margin-top: 0.3rem;
     user-select: none;
+    text-align: right;
   }
 
   @keyframes fadeUp {
@@ -336,12 +337,19 @@
 </nav>
 
 <section class="gallery">
+<!--
+  Card ID format: [tab][block][seq]
+  tab:   tv / tp / ti / ta / iv / vv / ot / fy
+  block: 2-digit, descending — higher = newer block (prepended at top)
+  seq:   2-digit, descending — higher = newer card (prepended at left)
+  Gaps are intentional; deleted items are not renumbered.
+-->
 
-  <!-- Block 1: model comparison -->
+  <!-- Block 03: model comparison -->
   <div class="section-block">
     <div class="section-title">
       <div class="section-title-line"></div>
-      <div class="section-title-text">01 Same prompt, different models.</div>
+      <div class="section-title-text">03 Same prompt, different models.</div>
       <div class="section-title-line"></div>
     </div>
     <div class="gallery-grid">
@@ -355,7 +363,7 @@
         <div class="card-details-wrap">
           <div class="card-details" id="d1">Kling 1.6 pro · 5s · 16:9 · #1 · 2025.03.10 · cfg: 0.5 · neg: blurry, watermark · seed: 4829301</div>
           <button class="details-btn" onclick="toggleEl(this,'d1')">... more</button>
-          <div class="card-id">tv0101</div>
+          <div class="card-id">tv0303</div>
         </div>
       </div>
 
@@ -368,7 +376,7 @@
         <div class="card-details-wrap">
           <div class="card-details" id="d2">Runway Gen-3 · 5s · 16:9 · #1 · 2025.03.10 · motion: 5 · same prompt, different model</div>
           <button class="details-btn" onclick="toggleEl(this,'d2')">... more</button>
-          <div class="card-id">tv0102</div>
+          <div class="card-id">tv0302</div>
         </div>
       </div>
 
@@ -381,14 +389,14 @@
         <div class="card-details-wrap">
           <div class="card-details" id="d3">Sora · 5s · 16:9 · #1 · 2025.03.10 · notable difference in dust simulation</div>
           <button class="details-btn" onclick="toggleEl(this,'d3')">... more</button>
-          <div class="card-id">tv0103</div>
+          <div class="card-id">tv0301</div>
         </div>
       </div>
 
     </div>
   </div>
 
-  <!-- Block 2: camera variation -->
+  <!-- Block 02: camera variation -->
   <div class="section-block">
     <div class="section-title">
       <div class="section-title-line"></div>
@@ -406,7 +414,7 @@
         <div class="card-details-wrap">
           <div class="card-details" id="d4">Kling 1.6 pro · 5s · #1 · 2025.03.12 · camera: close-up · base scene fixed</div>
           <button class="details-btn" onclick="toggleEl(this,'d4')">... more</button>
-          <div class="card-id">tv0201</div>
+          <div class="card-id">tv0202</div>
         </div>
       </div>
 
@@ -419,14 +427,14 @@
         <div class="card-details-wrap">
           <div class="card-details" id="d5">Kling 1.6 pro · 5s · #1 · 2025.03.12 · camera: aerial · same scene</div>
           <button class="details-btn" onclick="toggleEl(this,'d5')">... more</button>
-          <div class="card-id">tv0202</div>
+          <div class="card-id">tv0201</div>
         </div>
       </div>
 
     </div>
   </div>
 
-  <!-- Block 3: no title -->
+  <!-- Block 01: no title -->
   <div class="section-block">
     <div class="section-title">
       <div class="section-title-line"></div>
@@ -444,7 +452,7 @@
         <div class="card-details-wrap">
           <div class="card-details" id="d6">Kling 1.6 · 10s · #2 · 2025.03.15 · retry #2 · first attempt too dark · added "volumetric light"</div>
           <button class="details-btn" onclick="toggleEl(this,'d6')">... more</button>
-          <div class="card-id">tv0301</div>
+          <div class="card-id">tv0101</div>
         </div>
       </div>
 

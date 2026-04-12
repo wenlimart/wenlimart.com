@@ -268,6 +268,7 @@
     color: var(--muted2);
     margin-top: 0.3rem;
     user-select: none;
+    text-align: right;
   }
 
   /* ── Shared buttons ── */
@@ -361,12 +362,19 @@
 </nav>
 
 <section class="gallery">
+<!--
+  Card ID format: [tab][block][seq]
+  tab:   tv / tp / ti / ta / iv / vv / ot / fy
+  block: 2-digit, descending — higher = newer block (prepended at top)
+  seq:   2-digit, descending — higher = newer card (prepended at left)
+  Gaps are intentional; deleted items are not renumbered.
+-->
 
-  <!-- Block 1: video script prompts -->
+  <!-- Block 02: video script prompts -->
   <div class="section-block">
     <div class="section-title">
       <div class="section-title-line"></div>
-      <div class="section-title-text">01 Writing prompts for video scripts.</div>
+      <div class="section-title-text">02 Writing prompts for video scripts.</div>
       <div class="section-title-line"></div>
     </div>
     <div class="gallery-grid">
@@ -393,7 +401,7 @@
         <div class="card-details-wrap">
           <div class="card-meta">Intent → Prompt: GPT-4o</div>
           <div class="card-meta">Prompt → Output: GPT-4o</div>
-          <div class="card-id">tp0101</div>
+          <div class="card-id">tp0202</div>
         </div>
       </div>
 
@@ -419,18 +427,18 @@
         <div class="card-details-wrap">
           <div class="card-meta">Intent → Prompt: Claude Sonnet 4.5</div>
           <div class="card-meta">Prompt → Output: Claude Opus 4</div>
-          <div class="card-id">tp0102</div>
+          <div class="card-id">tp0201</div>
         </div>
       </div>
 
     </div>
   </div>
 
-  <!-- Block 2: text generation prompts -->
+  <!-- Block 01: text generation prompts -->
   <div class="section-block">
     <div class="section-title">
       <div class="section-title-line"></div>
-      <div class="section-title-text">02 Writing prompts for text generation.</div>
+      <div class="section-title-text">01 Writing prompts for text generation.</div>
       <div class="section-title-line"></div>
     </div>
     <div class="gallery-grid">
@@ -457,7 +465,7 @@
         <div class="card-details-wrap">
           <div class="card-meta">Intent → Prompt: Claude Sonnet 4.5</div>
           <div class="card-meta">Prompt → Output: GPT-4o</div>
-          <div class="card-id">tp0201</div>
+          <div class="card-id">tp0101</div>
         </div>
       </div>
 
