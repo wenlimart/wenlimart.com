@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>from you — wenlimart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f8f7f4;
+    --fg: #1a1a1a;
+    --accent: #2d2d2d;
+    --muted: #999;
+    --muted2: #bbb;
+    --border: #e0ddd8;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 2rem 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .site-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .site-tagline {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  nav {
+    display: flex;
+    padding: 0 3rem;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  nav::-webkit-scrollbar { display: none; }
+
+  nav a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0.75rem 1.2rem;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.2s, border-color 0.2s;
+    letter-spacing: 0.03em;
+  }
+  nav a:hover { color: var(--fg); }
+  nav a.active { color: var(--fg); border-bottom-color: var(--fg); }
+
+  .content {
+    padding: 5rem 3rem;
+    max-width: 560px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  .page-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted2);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+
+  .page-title {
+    font-family: 'DM Mono', monospace;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  .page-desc {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  .contact-link {
+    display: inline-block;
+    margin-top: 2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--fg);
+    padding-bottom: 2px;
+    transition: opacity 0.2s;
+  }
+  .contact-link:hover { opacity: 0.5; }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem 3rem;
+    border-top: 1px solid var(--border);
+    background: var(--bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer span {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--muted2);
+  }
+
+  footer a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  footer a:hover { color: var(--fg); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 600px) {
+    header, nav, .content { padding-left: 1.2rem; padding-right: 1.2rem; }
+    .content { padding-top: 3rem; }
+    footer { padding-left: 1.2rem; padding-right: 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="site-title">wenlimart</a>
+  <span class="site-tagline">Try this first.</span>
+</header>
+
+<nav>
+  <a href="index.html">text → video</a>
+  <a href="text-audio.html">text → audio</a>
+  <a href="text-image.html">text → image</a>
+  <a href="image-video.html">image → video</a>
+  <a href="video-video.html">video → video</a>
+  <a href="outtakes.html">outtakes</a>
+  <a href="from-you.html" class="active">from you</a>
+  <a href="contact.html">contact</a>
+</nav>
+
+<div class="content">
+  <div class="page-label">from you</div>
+  <div class="page-title">coming soon.</div>
+  <p class="page-desc">A page for community-submitted samples is on the way.<br>Send yours here.</p>
+  <a href="contact.html" class="contact-link">contact →</a>
+</div>
+
+<footer>
+  <span>© wenlimart</span>
+  <a href="index.html">← back</a>
+</footer>
+
+</body>
+</html>
