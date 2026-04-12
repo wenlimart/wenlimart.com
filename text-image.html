@@ -16,6 +16,9 @@
     --muted: #999;
     --muted2: #bbb;
     --border: #e0ddd8;
+    --tag-bg: #eeece8;
+    --card-bg: #ffffff;
+    --prompt-bg: #f4f2ee;
   }
 
   body {
@@ -26,6 +29,7 @@
     min-height: 100vh;
   }
 
+  /* ── Header ── */
   header {
     display: flex;
     justify-content: space-between;
@@ -49,9 +53,45 @@
     color: var(--muted);
   }
 
+  /* ── Hero ── */
+  .hero {
+    padding: 5rem 3rem 3rem;
+    max-width: 760px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  .hero-main {
+    font-family: 'DM Mono', monospace;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--fg);
+  }
+
+  .hero-sub-1 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: #666;
+    margin-top: 1rem;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-sub-2 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--muted2);
+    margin-top: 0.3rem;
+    letter-spacing: 0.01em;
+  }
+
+  /* ── Nav ── */
   nav {
     display: flex;
     padding: 0 3rem;
+    margin-top: 3rem;
     border-bottom: 1px solid var(--border);
     overflow-x: auto;
     scrollbar-width: none;
@@ -72,46 +112,180 @@
   nav a:hover { color: var(--fg); }
   nav a.active { color: var(--fg); border-bottom-color: var(--fg); }
 
-  .content {
-    padding: 5rem 3rem;
-    max-width: 560px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards;
-  }
+  /* ── Gallery ── */
+  .gallery { padding: 2.5rem 3rem 4rem; }
 
-  .page-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--muted2);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-bottom: 1.2rem;
-  }
+  .section-block { margin-bottom: 3rem; }
 
-  .page-title {
-    font-family: 'DM Mono', monospace;
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 300;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     margin-bottom: 1.5rem;
   }
 
-  .page-desc {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.82rem;
+  .section-title-line { flex: 1; height: 1px; background: var(--border); }
+
+  .section-title-text {
+    font-size: 0.78rem;
+    font-weight: 300;
     color: var(--muted);
-    line-height: 1.8;
+    white-space: nowrap;
+    letter-spacing: 0.04em;
   }
 
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.2rem;
+  }
+
+  /* ── Card ── */
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card:nth-child(1) { animation-delay: 0.05s; }
+  .card:nth-child(2) { animation-delay: 0.12s; }
+  .card:nth-child(3) { animation-delay: 0.19s; }
+
+  /* ── Zone label ── */
+  .card-zone-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    color: var(--muted2);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+  }
+
+  /* ── 1: Intent ── */
+  .card-intent-wrap {
+    padding: 0.9rem 1rem 0;
+  }
+
+  .card-intent {
+    font-size: 0.78rem;
+    color: var(--fg);
+    line-height: 1.7;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-intent.expanded {
+    display: block;
+    overflow: visible;
+  }
+
+  /* ── 2: Prompt ── */
+  .card-prompt-wrap {
+    padding: 0.7rem 1rem 0;
+  }
+
+  .card-prompt {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--fg);
+    line-height: 1.65;
+    background: var(--prompt-bg);
+    border-radius: 2px;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid transparent;
+    transition: border-color 0.15s;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    user-select: all;
+  }
+
+  .card-prompt.expanded {
+    display: block;
+    overflow: visible;
+  }
+
+  .card-prompt:hover { border-color: var(--border); }
+
+  .prompt-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 1.4rem;
+  }
+
+  /* ── 3: Output (image) ── */
+  .card-output-wrap {
+    padding: 0.7rem 1rem 0;
+  }
+
+  .card-image-placeholder {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background: #edeae4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted2);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── Details (model name only) ── */
+  .card-details-wrap {
+    padding: 0.6rem 1rem 0.9rem;
+    margin-top: auto;
+  }
+
+  .card-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--muted);
+  }
+
+  /* ── Shared buttons ── */
+  .expand-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--muted2);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem 0 0;
+    display: block;
+    transition: color 0.15s;
+    user-select: none;
+  }
+  .expand-btn:hover { color: var(--fg); }
+  .expand-btn.hidden { display: none; }
+
+  .copy-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--muted2);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem 0 0;
+    transition: color 0.15s;
+    user-select: none;
+    flex-shrink: 0;
+  }
+  .copy-btn:hover { color: var(--fg); }
+
+  /* ── Footer ── */
   footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 1.5rem 3rem;
+    padding: 2rem 3rem;
     border-top: 1px solid var(--border);
-    background: var(--bg);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -138,9 +312,8 @@
   }
 
   @media (max-width: 600px) {
-    header, nav, .content { padding-left: 1.2rem; padding-right: 1.2rem; }
-    .content { padding-top: 3rem; }
-    footer { padding-left: 1.2rem; padding-right: 1.2rem; }
+    header, nav, .gallery, footer { padding-left: 1.2rem; padding-right: 1.2rem; }
+    .hero { padding: 3rem 1.2rem 2rem; }
   }
 </style>
 </head>
@@ -150,6 +323,12 @@
   <a href="index.html" class="site-title">wenlimart</a>
   <span class="site-tagline">Try this first.</span>
 </header>
+
+<div class="hero">
+  <div class="hero-main">text → image.</div>
+  <div class="hero-sub-1">The prompt and what it made.</div>
+  <div class="hero-sub-2">— Generated images with the prompts that produced them.</div>
+</div>
 
 <nav>
   <a href="index.html">text → video</a>
@@ -163,16 +342,75 @@
   <a href="contact.html">contact</a>
 </nav>
 
-<div class="content">
-  <div class="page-label">text → image</div>
-  <div class="page-title">coming soon.</div>
-  <p class="page-desc">Samples of AI-generated images are on the way.</p>
-</div>
+<section class="gallery">
+
+  <!-- Block 1: mood and atmosphere -->
+  <div class="section-block">
+    <div class="section-title">
+      <div class="section-title-line"></div>
+      <div class="section-title-text">Mood and atmosphere.</div>
+      <div class="section-title-line"></div>
+    </div>
+    <div class="gallery-grid">
+
+      <div class="card">
+        <div class="card-intent-wrap">
+          <div class="card-zone-label">intent</div>
+          <div class="card-intent" id="i1">A moody cafe interior — analog film feel, golden hour light streaming through rain-streaked windows, worn but warm.</div>
+          <button class="expand-btn" onclick="toggleEl(this,'i1')">... more</button>
+        </div>
+        <div class="card-prompt-wrap">
+          <div class="card-zone-label">prompt</div>
+          <div class="card-prompt" id="p1">Intimate cafe interior, late afternoon golden hour light streaming through rain-streaked windows, worn leather armchairs, stacks of dog-eared paperbacks, a single espresso on a marble table, dust particles in sunbeams, analog film grain, Leica M aesthetic, warm shadows, cinematic mood --ar 4:5 --style raw --stylize 750</div>
+          <div class="prompt-actions">
+            <button class="expand-btn" onclick="toggleEl(this,'p1')">... more</button>
+            <button class="copy-btn" onclick="copyPrompt('p1')">copy</button>
+          </div>
+        </div>
+        <div class="card-output-wrap">
+          <div class="card-zone-label">output</div>
+          <div class="card-image-placeholder">no image yet</div>
+        </div>
+        <div class="card-details-wrap">
+          <div class="card-meta">Midjourney v7</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
 
 <footer>
   <span>© 2025–2026 Wenli Mart, LLC</span>
   <div style="display:flex;gap:1.5rem;"><a href="text-audio.html">← prev</a><a href="image-video.html">next →</a></div>
 </footer>
+
+<script>
+  function toggleEl(btn, id) {
+    const el = document.getElementById(id);
+    const isExpanded = el.classList.toggle('expanded');
+    btn.textContent = isExpanded ? '... less' : '... more';
+  }
+
+  function copyPrompt(id) {
+    const el = document.getElementById(id);
+    navigator.clipboard.writeText(el.textContent.trim()).then(() => {
+      const btn = el.closest('.card-prompt-wrap').querySelector('.copy-btn');
+      btn.textContent = 'copied';
+      setTimeout(() => { btn.textContent = 'copy'; }, 1500);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.card-intent, .card-prompt').forEach(el => {
+      if (el.scrollHeight <= el.clientHeight + 2) {
+        const btn = el.nextElementSibling;
+        if (btn && btn.classList.contains('expand-btn')) btn.classList.add('hidden');
+      }
+    });
+  });
+</script>
 
 </body>
 </html>

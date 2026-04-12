@@ -416,11 +416,11 @@
     </div>
   </div>
 
-  <!-- Block 2: image generation prompts -->
+  <!-- Block 2: text generation prompts -->
   <div class="section-block">
     <div class="section-title">
       <div class="section-title-line"></div>
-      <div class="section-title-text">Writing prompts for image generation.</div>
+      <div class="section-title-text">Writing prompts for text generation.</div>
       <div class="section-title-line"></div>
     </div>
     <div class="gallery-grid">
@@ -428,12 +428,12 @@
       <div class="card">
         <div class="card-intent-wrap">
           <div class="card-zone-label">intent</div>
-          <div class="card-intent" id="i3">A Midjourney prompt for a moody cafe interior — analog film feel, golden hour light, worn but warm.</div>
+          <div class="card-intent" id="i3">A short product description for a minimal Japanese stationery brand — formal but warm, under 80 words, for an e-commerce product page.</div>
           <button class="expand-btn" onclick="toggleEl(this,'i3')">... more</button>
         </div>
         <div class="card-prompt-wrap">
           <div class="card-zone-label">prompt</div>
-          <div class="card-prompt" id="p3">Intimate cafe interior, late afternoon golden hour light streaming through rain-streaked windows, worn leather armchairs, stacks of dog-eared paperbacks, a single espresso on a marble table, dust particles in sunbeams, analog film grain, Leica M aesthetic, warm shadows, cinematic mood --ar 4:5 --style raw --stylize 750</div>
+          <div class="card-prompt" id="p3">Write a product description for a Japanese stationery brand. Product: A5 cotton-paper notebook with a natural linen cover and brass binding. Key qualities: handmade, slow, durable. Tone: understated, confident. Length: 60–80 words. Audience: design-conscious adults, 25–45. No superlatives. No exclamation marks. End with a sentence about longevity.</div>
           <div class="prompt-actions">
             <button class="expand-btn" onclick="toggleEl(this,'p3')">... more</button>
             <button class="copy-btn" onclick="copyPrompt('p3')">copy</button>
@@ -441,12 +441,12 @@
         </div>
         <div class="card-output-wrap">
           <div class="card-zone-label">output</div>
-          <div class="card-output" id="o3">Strong window light with visible dust particles. Leather chairs skewed more modern than intended. Adding "vintage" on retry produced better aged texture. The espresso cup rendered too large — "espresso macchiato" gave better scale. Third attempt nailed the grain and shadow quality.</div>
+          <div class="card-output" id="o3">Some paper deserves to hold something that lasts. This notebook is made from 100% cotton paper — soft to the touch, resistant to bleed-through — bound in natural linen and finished with brass hardware that will age without failing. It is the kind of object that improves with use, and improves what you use it for. Made by hand. Meant to last.</div>
           <button class="expand-btn" onclick="toggleEl(this,'o3')">... more</button>
         </div>
         <div class="card-details-wrap">
-          <div class="card-meta">Intent → Prompt: GPT-4o</div>
-          <div class="card-meta">Prompt → Output: Midjourney v7</div>
+          <div class="card-meta">Intent → Prompt: Claude Sonnet 4.5</div>
+          <div class="card-meta">Prompt → Output: GPT-4o</div>
         </div>
       </div>
 
