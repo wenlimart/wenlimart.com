@@ -262,6 +262,14 @@
     color: var(--muted);
   }
 
+  .card-id {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    color: var(--muted2);
+    margin-top: 0.3rem;
+    user-select: none;
+  }
+
   /* ── Shared buttons ── */
   .expand-btn {
     font-family: 'DM Mono', monospace;
@@ -343,8 +351,8 @@
 <nav>
   <a href="index.html">text → video</a>
   <a href="text-prompt.html" class="active">text → prompt</a>
-  <a href="text-audio.html">text → audio</a>
   <a href="text-image.html">text → image</a>
+  <a href="text-audio.html">text → audio</a>
   <a href="image-video.html">image → video</a>
   <a href="video-video.html">video → video</a>
   <a href="outtakes.html">outtakes</a>
@@ -358,7 +366,7 @@
   <div class="section-block">
     <div class="section-title">
       <div class="section-title-line"></div>
-      <div class="section-title-text">Writing prompts for video scripts.</div>
+      <div class="section-title-text">01 Writing prompts for video scripts.</div>
       <div class="section-title-line"></div>
     </div>
     <div class="gallery-grid">
@@ -385,6 +393,7 @@
         <div class="card-details-wrap">
           <div class="card-meta">Intent → Prompt: GPT-4o</div>
           <div class="card-meta">Prompt → Output: GPT-4o</div>
+          <div class="card-id">tp0101</div>
         </div>
       </div>
 
@@ -410,6 +419,7 @@
         <div class="card-details-wrap">
           <div class="card-meta">Intent → Prompt: Claude Sonnet 4.5</div>
           <div class="card-meta">Prompt → Output: Claude Opus 4</div>
+          <div class="card-id">tp0102</div>
         </div>
       </div>
 
@@ -420,7 +430,7 @@
   <div class="section-block">
     <div class="section-title">
       <div class="section-title-line"></div>
-      <div class="section-title-text">Writing prompts for text generation.</div>
+      <div class="section-title-text">02 Writing prompts for text generation.</div>
       <div class="section-title-line"></div>
     </div>
     <div class="gallery-grid">
@@ -447,6 +457,7 @@
         <div class="card-details-wrap">
           <div class="card-meta">Intent → Prompt: Claude Sonnet 4.5</div>
           <div class="card-meta">Prompt → Output: GPT-4o</div>
+          <div class="card-id">tp0201</div>
         </div>
       </div>
 
@@ -457,7 +468,7 @@
 
 <footer>
   <span>© 2025–2026 Wenli Mart, LLC</span>
-  <div style="display:flex;gap:1.5rem;"><a href="index.html">← prev</a><a href="text-audio.html">next →</a></div>
+  <div style="display:flex;gap:1.5rem;"><a href="index.html">← prev</a><a href="text-image.html">next →</a></div>
 </footer>
 
 <script>

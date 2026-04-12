@@ -16,7 +16,6 @@
     --muted: #999;
     --muted2: #bbb;
     --border: #e0ddd8;
-    --tag-bg: #eeece8;
     --card-bg: #ffffff;
     --prompt-bg: #f4f2ee;
   }
@@ -29,7 +28,6 @@
     min-height: 100vh;
   }
 
-  /* ── Header ── */
   header {
     display: flex;
     justify-content: space-between;
@@ -53,7 +51,6 @@
     color: var(--muted);
   }
 
-  /* ── Hero ── */
   .hero {
     padding: 5rem 3rem 3rem;
     max-width: 760px;
@@ -67,7 +64,6 @@
     font-weight: 300;
     line-height: 1.1;
     letter-spacing: -0.02em;
-    color: var(--fg);
   }
 
   .hero-sub-1 {
@@ -87,7 +83,6 @@
     letter-spacing: 0.01em;
   }
 
-  /* ── Nav ── */
   nav {
     display: flex;
     padding: 0 3rem;
@@ -112,7 +107,6 @@
   nav a:hover { color: var(--fg); }
   nav a.active { color: var(--fg); border-bottom-color: var(--fg); }
 
-  /* ── Gallery ── */
   .gallery { padding: 2.5rem 3rem 4rem; }
 
   .section-block { margin-bottom: 3rem; }
@@ -140,7 +134,6 @@
     gap: 1.2rem;
   }
 
-  /* ── Card ── */
   .card {
     background: var(--card-bg);
     border: 1px solid var(--border);
@@ -156,7 +149,6 @@
   .card:nth-child(2) { animation-delay: 0.12s; }
   .card:nth-child(3) { animation-delay: 0.19s; }
 
-  /* ── Zone label ── */
   .card-zone-label {
     font-family: 'DM Mono', monospace;
     font-size: 0.58rem;
@@ -166,10 +158,7 @@
     margin-bottom: 0.35rem;
   }
 
-  /* ── 1: Intent ── */
-  .card-intent-wrap {
-    padding: 0.9rem 1rem 0;
-  }
+  .card-intent-wrap { padding: 0.9rem 1rem 0; }
 
   .card-intent {
     font-size: 0.78rem;
@@ -181,15 +170,9 @@
     overflow: hidden;
   }
 
-  .card-intent.expanded {
-    display: block;
-    overflow: visible;
-  }
+  .card-intent.expanded { display: block; overflow: visible; }
 
-  /* ── 2: Prompt ── */
-  .card-prompt-wrap {
-    padding: 0.7rem 1rem 0;
-  }
+  .card-prompt-wrap { padding: 0.7rem 1rem 0; }
 
   .card-prompt {
     font-family: 'DM Mono', monospace;
@@ -208,11 +191,7 @@
     user-select: all;
   }
 
-  .card-prompt.expanded {
-    display: block;
-    overflow: visible;
-  }
-
+  .card-prompt.expanded { display: block; overflow: visible; }
   .card-prompt:hover { border-color: var(--border); }
 
   .prompt-actions {
@@ -222,14 +201,10 @@
     min-height: 1.4rem;
   }
 
-  /* ── 3: Output (image) ── */
-  .card-output-wrap {
-    padding: 0.7rem 1rem 0;
-  }
+  .card-output-wrap { padding: 0.7rem 1rem 0; }
 
   .card-image-placeholder {
     width: 100%;
-    aspect-ratio: 4/5;
     background: #edeae4;
     display: flex;
     align-items: center;
@@ -240,7 +215,6 @@
     letter-spacing: 0.05em;
   }
 
-  /* ── Details (model name only) ── */
   .card-details-wrap {
     padding: 0.6rem 1rem 0.9rem;
     margin-top: auto;
@@ -252,7 +226,14 @@
     color: var(--muted);
   }
 
-  /* ── Shared buttons ── */
+  .card-id {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    color: var(--muted2);
+    margin-top: 0.3rem;
+    user-select: none;
+  }
+
   .expand-btn {
     font-family: 'DM Mono', monospace;
     font-size: 0.6rem;
@@ -282,7 +263,6 @@
   }
   .copy-btn:hover { color: var(--fg); }
 
-  /* ── Footer ── */
   footer {
     padding: 2rem 3rem;
     border-top: 1px solid var(--border);
@@ -333,8 +313,8 @@
 <nav>
   <a href="index.html">text → video</a>
   <a href="text-prompt.html">text → prompt</a>
-  <a href="text-audio.html">text → audio</a>
   <a href="text-image.html" class="active">text → image</a>
+  <a href="text-audio.html">text → audio</a>
   <a href="image-video.html">image → video</a>
   <a href="video-video.html">video → video</a>
   <a href="outtakes.html">outtakes</a>
@@ -344,11 +324,11 @@
 
 <section class="gallery">
 
-  <!-- Block 1: mood and atmosphere -->
+  <!-- Block 01: Midjourney -->
   <div class="section-block">
     <div class="section-title">
       <div class="section-title-line"></div>
-      <div class="section-title-text">Mood and atmosphere.</div>
+      <div class="section-title-text">01 Midjourney</div>
       <div class="section-title-line"></div>
     </div>
     <div class="gallery-grid">
@@ -369,10 +349,83 @@
         </div>
         <div class="card-output-wrap">
           <div class="card-zone-label">output</div>
-          <div class="card-image-placeholder">no image yet</div>
+          <div class="card-image-placeholder" style="aspect-ratio:4/5">no image yet</div>
         </div>
         <div class="card-details-wrap">
           <div class="card-meta">Midjourney v7</div>
+          <div class="card-id">ti0101</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Block 02: Stable Diffusion -->
+  <div class="section-block">
+    <div class="section-title">
+      <div class="section-title-line"></div>
+      <div class="section-title-text">02 Stable Diffusion</div>
+      <div class="section-title-line"></div>
+    </div>
+    <div class="gallery-grid">
+
+      <div class="card">
+        <div class="card-intent-wrap">
+          <div class="card-zone-label">intent</div>
+          <div class="card-intent" id="i2">Portrait of an elderly Japanese craftsman at his workbench — weathered hands, natural sidelight, quiet dignity.</div>
+          <button class="expand-btn" onclick="toggleEl(this,'i2')">... more</button>
+        </div>
+        <div class="card-prompt-wrap">
+          <div class="card-zone-label">prompt</div>
+          <div class="card-prompt" id="p2">elderly Japanese master craftsman, portrait, woodblock print workshop, close-up on weathered hands resting on worn workbench, natural window light from left, scattered wood shavings, muted earth tones, shallow depth of field, analog film grain, dignified mood, photorealistic, highly detailed, masterpiece, best quality</div>
+          <div class="prompt-actions">
+            <button class="expand-btn" onclick="toggleEl(this,'p2')">... more</button>
+            <button class="copy-btn" onclick="copyPrompt('p2')">copy</button>
+          </div>
+        </div>
+        <div class="card-output-wrap">
+          <div class="card-zone-label">output</div>
+          <div class="card-image-placeholder" style="aspect-ratio:2/3">no image yet</div>
+        </div>
+        <div class="card-details-wrap">
+          <div class="card-meta">Stable Diffusion XL</div>
+          <div class="card-id">ti0201</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Block 03: DALL·E 3 -->
+  <div class="section-block">
+    <div class="section-title">
+      <div class="section-title-line"></div>
+      <div class="section-title-text">03 DALL·E 3</div>
+      <div class="section-title-line"></div>
+    </div>
+    <div class="gallery-grid">
+
+      <div class="card">
+        <div class="card-intent-wrap">
+          <div class="card-zone-label">intent</div>
+          <div class="card-intent" id="i3">An aerial illustration of a quiet Japanese fishing village at dusk — wooden boats, still harbor, warm fading light.</div>
+          <button class="expand-btn" onclick="toggleEl(this,'i3')">... more</button>
+        </div>
+        <div class="card-prompt-wrap">
+          <div class="card-zone-label">prompt</div>
+          <div class="card-prompt" id="p3">An aerial view illustration of a quiet Japanese fishing village at dusk. Small wooden boats are moored in a still harbor reflecting an orange and purple sky. Narrow streets wind between compact wooden houses with warm glowing windows. The style blends traditional woodblock print aesthetics with a modern illustrative sensibility. Soft, contemplative mood.</div>
+          <div class="prompt-actions">
+            <button class="expand-btn" onclick="toggleEl(this,'p3')">... more</button>
+            <button class="copy-btn" onclick="copyPrompt('p3')">copy</button>
+          </div>
+        </div>
+        <div class="card-output-wrap">
+          <div class="card-zone-label">output</div>
+          <div class="card-image-placeholder" style="aspect-ratio:1/1">no image yet</div>
+        </div>
+        <div class="card-details-wrap">
+          <div class="card-meta">DALL·E 3</div>
+          <div class="card-id">ti0301</div>
         </div>
       </div>
 
@@ -383,7 +436,7 @@
 
 <footer>
   <span>© 2025–2026 Wenli Mart, LLC</span>
-  <div style="display:flex;gap:1.5rem;"><a href="text-audio.html">← prev</a><a href="image-video.html">next →</a></div>
+  <div style="display:flex;gap:1.5rem;"><a href="text-prompt.html">← prev</a><a href="text-audio.html">next →</a></div>
 </footer>
 
 <script>
