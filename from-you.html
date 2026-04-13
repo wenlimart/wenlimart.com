@@ -104,6 +104,15 @@
     line-height: 1.8;
   }
 
+  .page-desc a {
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--fg);
+    padding-bottom: 1px;
+    transition: opacity 0.2s;
+  }
+  .page-desc a:hover { opacity: 0.5; }
+
   .contact-link {
     display: inline-block;
     margin-top: 2rem;
@@ -179,7 +188,7 @@
 <div class="content">
   <div class="page-label">from you</div>
   <div class="page-title">coming soon.</div>
-  <p class="page-desc">A page for community-submitted samples is on the way.<br>Send yours here.</p>
+  <p class="page-desc">Contributors only. Want in? <a href="mailto:ai@wenlimart.com">Get in touch.</a></p>
   <a href="contact.html" class="contact-link">contact →</a>
 </div>
 
