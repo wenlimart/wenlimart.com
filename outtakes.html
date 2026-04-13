@@ -104,6 +104,15 @@
     line-height: 1.8;
   }
 
+  .page-desc a {
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--fg);
+    padding-bottom: 1px;
+    transition: opacity 0.2s;
+  }
+  .page-desc a:hover { opacity: 0.5; }
+
   footer {
     position: fixed;
     bottom: 0;
@@ -166,6 +175,7 @@
 <div class="content">
   <div class="page-label">outtakes</div>
   <div class="page-title">Contributors only.</div>
+  <p class="page-desc"><a href="contact.html">Get in touch.</a><br>A collection of failed attempts and rejected experiments.</p>
 </div>
 
 <footer>
