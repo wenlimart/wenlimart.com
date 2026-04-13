@@ -69,11 +69,13 @@
   }
 
   .hero {
-    padding: 1rem 3rem 3rem;
+    padding: 1rem 3rem;
     max-width: 760px;
     opacity: 0;
     animation: fadeUp 0.8s ease forwards;
   }
+
+  .divider { border-top: 1px solid var(--border); }
 
   .hero-main {
     font-family: 'DM Mono', monospace;
@@ -124,7 +126,7 @@
   nav a:hover { color: var(--fg); }
   nav a.active { color: var(--fg); border-bottom-color: var(--fg); }
 
-  .gallery { padding: 2.5rem 3rem 4rem; }
+  .gallery { padding: 2rem 3rem 4rem; }
 
   .section-block { margin-bottom: 3rem; }
 
@@ -344,6 +346,8 @@
   <div class="hero-sub-1">The prompt and what it made.</div>
   <div class="hero-sub-2">— Generated images with the prompts that produced them.</div>
 </div>
+
+<div class="divider"></div>
 
 <section class="gallery">
 <!--

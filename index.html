@@ -72,11 +72,13 @@
 
   /* ── Hero ── */
   .hero {
-    padding: 1rem 3rem 3rem;
+    padding: 1rem 3rem;
     max-width: 760px;
     opacity: 0;
     animation: fadeUp 0.8s ease forwards;
   }
+
+  .divider { border-top: 1px solid var(--border); }
 
   .hero-main {
     font-family: 'DM Mono', monospace;
@@ -130,7 +132,7 @@
   nav a.active { color: var(--fg); border-bottom-color: var(--fg); }
 
   /* ── Gallery ── */
-  .gallery { padding: 2.5rem 3rem 4rem; }
+  .gallery { padding: 2rem 3rem 4rem; }
 
   .section-block { margin-bottom: 3rem; }
 
@@ -357,6 +359,8 @@
   <div class="hero-sub-1">The scene and what the model made.</div>
   <div class="hero-sub-2">— AI-generated videos with the prompts that produced them.</div>
 </div>
+
+<div class="divider"></div>
 
 <section class="gallery">
 <!--
