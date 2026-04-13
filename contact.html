@@ -88,7 +88,7 @@
   nav a.active { color: var(--fg); border-bottom-color: var(--fg); }
 
   .content {
-    padding: 5rem 3rem;
+    padding: 2.5rem 3rem;
     max-width: 560px;
     opacity: 0;
     animation: fadeUp 0.8s ease forwards;
@@ -99,7 +99,16 @@
     font-size: 1.8rem;
     font-weight: 300;
     letter-spacing: -0.02em;
-    margin-bottom: 2.5rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .page-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: #666;
+    letter-spacing: 0.01em;
+    margin-bottom: 2rem;
   }
 
   .mail-link {
@@ -110,7 +119,7 @@
     text-decoration: none;
     border-bottom: 1px solid var(--fg);
     padding-bottom: 2px;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
     transition: opacity 0.2s;
   }
 
@@ -187,7 +196,7 @@
     header { grid-template-columns: auto auto; }
     .site-catch-sub { display: none; }
     .site-catch-main { font-size: 1.2rem; }
-    .content { padding-top: 3rem; }
+    .content { padding-top: 1.5rem; }
   }
 </style>
 </head>
@@ -215,6 +224,7 @@
 
 <div class="content">
   <h1>contact.</h1>
+  <p class="page-sub">Drop us a line.</p>
 
   <a href="mailto:ai@wenlimart.com" class="mail-link">ai@wenlimart.com</a>
 
