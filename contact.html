@@ -27,7 +27,8 @@
 
   header {
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: auto auto;
+    column-gap: 2.5rem;
     align-items: baseline;
     padding: 2rem 3rem;
     border-bottom: 1px solid var(--border);
@@ -193,7 +194,6 @@
 
   @media (max-width: 600px) {
     header, nav, .content, footer { padding-left: 1.2rem; padding-right: 1.2rem; }
-    header { grid-template-columns: auto auto; }
     .site-catch-sub { display: none; }
     .site-catch-main { font-size: 1.2rem; }
     .content { padding-top: 1.5rem; }
