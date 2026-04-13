@@ -48,6 +48,29 @@
     color: var(--muted);
   }
 
+  nav {
+    display: flex;
+    padding: 0 3rem;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  nav::-webkit-scrollbar { display: none; }
+
+  nav a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0.75rem 1.2rem;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.2s, border-color 0.2s;
+    letter-spacing: 0.03em;
+  }
+  nav a:hover { color: var(--fg); }
+  nav a.active { color: var(--fg); border-bottom-color: var(--fg); }
+
   .content {
     padding: 5rem 3rem;
     max-width: 560px;
@@ -144,7 +167,7 @@
   }
 
   @media (max-width: 600px) {
-    header, .content, footer { padding-left: 1.2rem; padding-right: 1.2rem; }
+    header, nav, .content, footer { padding-left: 1.2rem; padding-right: 1.2rem; }
     .content { padding-top: 3rem; }
   }
 </style>
@@ -155,6 +178,18 @@
   <a href="index.html" class="site-title">wenlimart</a>
   <span class="site-tagline">Try this first.</span>
 </header>
+
+<nav>
+  <a href="index.html">text → video</a>
+  <a href="text-prompt.html">text → prompt</a>
+  <a href="text-image.html">text → image</a>
+  <a href="text-audio.html">text → audio</a>
+  <a href="image-video.html">image → video</a>
+  <a href="video-video.html">video → video</a>
+  <a href="outtakes.html">outtakes</a>
+  <a href="from-you.html">from you</a>
+  <a href="contact.html" class="active">contact</a>
+</nav>
 
 <div class="content">
   <h1>contact.</h1>
