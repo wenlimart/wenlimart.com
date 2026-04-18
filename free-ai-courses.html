@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free AI Courses — wenlimart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f8f7f4;
+    --fg: #1a1a1a;
+    --accent: #2d2d2d;
+    --muted: #999;
+    --muted2: #bbb;
+    --border: #e0ddd8;
+    --card-bg: #ffffff;
+    --prompt-bg: #f4f2ee;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 2.5rem;
+    align-items: baseline;
+    padding: 2rem 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .site-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .site-catch {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  .site-catch-main {
+    font-family: 'DM Mono', monospace;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .site-catch-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--muted2);
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+
+  nav {
+    display: flex;
+    padding: 0 3rem;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  nav::-webkit-scrollbar { display: none; }
+
+  nav a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0.75rem 1.2rem;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.2s, border-color 0.2s;
+    letter-spacing: 0.03em;
+  }
+  nav a:hover { color: var(--fg); }
+  nav a.active { color: var(--fg); border-bottom-color: var(--fg); }
+
+  .content {
+    padding: 1rem 3rem;
+    max-width: 760px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  .page-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 1.8rem;
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .page-desc {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 0.4rem;
+  }
+
+  .divider { border-top: 1px solid var(--border); }
+
+  /* ── Course list ── */
+  .courses {
+    padding: 2rem 3rem 5rem;
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+
+  .course-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1.4rem 1.6rem;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+  }
+
+  .course-card:nth-child(1) { animation-delay: 0.05s; }
+  .course-card:nth-child(2) { animation-delay: 0.12s; }
+  .course-card:nth-child(3) { animation-delay: 0.19s; }
+  .course-card:nth-child(4) { animation-delay: 0.26s; }
+  .course-card:nth-child(5) { animation-delay: 0.33s; }
+  .course-card:nth-child(6) { animation-delay: 0.40s; }
+
+  .course-provider {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--muted2);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+  }
+
+  .course-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--fg);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.75rem;
+  }
+
+  .course-desc {
+    font-size: 0.82rem;
+    color: #555;
+    line-height: 1.75;
+    margin-bottom: 1rem;
+  }
+
+  .course-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+    padding: 0.4rem 0.6rem;
+    background: var(--prompt-bg);
+    border-radius: 2px;
+    display: inline-block;
+  }
+
+  .course-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .course-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2px;
+    transition: border-color 0.15s, opacity 0.15s;
+    white-space: nowrap;
+  }
+  .course-link:hover {
+    border-color: var(--fg);
+    opacity: 0.7;
+  }
+
+  footer {
+    padding: 2rem 3rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer span {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--muted2);
+  }
+
+  footer a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  footer a:hover { color: var(--fg); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 600px) {
+    header, nav, .content, .courses, footer { padding-left: 1.2rem; padding-right: 1.2rem; }
+    .site-catch-sub { display: none; }
+    .site-catch-main { font-size: 1.2rem; }
+    .content { padding-top: 1.5rem; }
+    .courses { padding-bottom: 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="site-title">wenlimart</a>
+  <div class="site-catch">
+    <span class="site-catch-main">Try this first.</span>
+    <span class="site-catch-sub">Before you prompt again and again.<br>— An open catalog of AI-generated samples.</span>
+  </div>
+</header>
+
+<nav>
+  <a href="index.html">text → video</a>
+  <a href="text-prompt.html">text → prompt</a>
+  <a href="text-image.html">text → image</a>
+  <a href="text-audio.html">text → audio</a>
+  <a href="image-video.html">image → video</a>
+  <a href="video-video.html">video → video</a>
+  <a href="outtakes.html">outtakes</a>
+  <a href="from-you.html">from you</a>
+  <a href="free-ai-courses.html" class="active">free ai courses</a>
+  <a href="contact.html">contact</a>
+</nav>
+
+<div class="content">
+  <div class="page-title">free ai courses.</div>
+  <p class="page-desc">All courses listed here are free to access or audit.</p>
+  <p class="page-desc">Certificates may require payment where noted.</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="courses">
+
+  <div class="course-card">
+    <div class="course-provider">Google</div>
+    <div class="course-name">Generative AI Learning Path</div>
+    <p class="course-desc">Structured learning path on Google Skills covering generative AI fundamentals through practical implementation, including a Prompt Engineering course.</p>
+    <div class="course-links">
+      <a href="https://www.skills.google/paths/118" class="course-link" target="_blank" rel="noopener">Beginner path →</a>
+      <a href="https://www.skills.google/paths/183" class="course-link" target="_blank" rel="noopener">Developer path →</a>
+      <a href="https://www.coursera.org/specializations/introduction-to-generative-ai" class="course-link" target="_blank" rel="noopener">Coursera specialization →</a>
+    </div>
+  </div>
+
+  <div class="course-card">
+    <div class="course-provider">Microsoft</div>
+    <div class="course-name">AI Fundamentals</div>
+    <p class="course-desc">Free AI fundamentals course on Microsoft Learn. Pairs well with Azure-related courses for Azure users.</p>
+    <div class="course-links">
+      <a href="https://learn.microsoft.com/en-us/ai/" class="course-link" target="_blank" rel="noopener">AI hub →</a>
+      <a href="https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/" class="course-link" target="_blank" rel="noopener">AI fundamentals module →</a>
+    </div>
+  </div>
+
+  <div class="course-card">
+    <div class="course-provider">IBM / Coursera</div>
+    <div class="course-name">AI Engineering Professional Certificate</div>
+    <p class="course-desc">Professional-level AI engineering certificate on Coursera. Free to audit. Covers machine learning, deep learning, and generative AI.</p>
+    <div class="course-note">free to audit — certificate requires payment</div>
+    <div class="course-links">
+      <a href="https://www.coursera.org/professional-certificates/ai-engineer" class="course-link" target="_blank" rel="noopener">AI engineering certificate →</a>
+      <a href="https://www.coursera.org/professional-certificates/ibm-generative-ai-engineering" class="course-link" target="_blank" rel="noopener">Generative AI engineering →</a>
+    </div>
+  </div>
+
+  <div class="course-card">
+    <div class="course-provider">DeepLearning.AI</div>
+    <div class="course-name">Andrew Ng's Short Courses</div>
+    <p class="course-desc">Focused 1–2 hour short courses by Andrew Ng covering agents, RAG, prompt engineering, and fine-tuning. No filler — just what you need.</p>
+    <div class="course-links">
+      <a href="https://www.deeplearning.ai/courses/" class="course-link" target="_blank" rel="noopener">All courses →</a>
+      <a href="https://www.deeplearning.ai/courses/agentic-ai/" class="course-link" target="_blank" rel="noopener">Agentic AI →</a>
+      <a href="https://www.deeplearning.ai/courses/generative-ai-for-everyone/" class="course-link" target="_blank" rel="noopener">Generative AI for everyone →</a>
+    </div>
+  </div>
+
+  <div class="course-card">
+    <div class="course-provider">Anthropic</div>
+    <div class="course-name">Prompt Engineering Guide</div>
+    <p class="course-desc">Anthropic's publicly available engineering documentation and interactive tutorials. More practical than most paid courses on the topic.</p>
+    <div class="course-links">
+      <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" class="course-link" target="_blank" rel="noopener">Official docs →</a>
+      <a href="https://github.com/anthropics/prompt-eng-interactive-tutorial" class="course-link" target="_blank" rel="noopener">Interactive tutorial →</a>
+    </div>
+  </div>
+
+  <div class="course-card">
+    <div class="course-provider">Harvard / edX</div>
+    <div class="course-name">CS50 AI — Introduction to Artificial Intelligence with Python</div>
+    <p class="course-desc">CS50's Introduction to Artificial Intelligence with Python. Free to audit on edX. Covers graph search, classification, optimization, reinforcement learning, and more.</p>
+    <div class="course-note">free to audit — verified certificate $299</div>
+    <div class="course-links">
+      <a href="https://www.edx.org/learn/artificial-intelligence/harvard-university-cs50-s-introduction-to-artificial-intelligence-with-python" class="course-link" target="_blank" rel="noopener">edX course page →</a>
+      <a href="https://cs50.harvard.edu/ai/" class="course-link" target="_blank" rel="noopener">CS50 official site →</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span>© 2025–2026 Wenli Mart, LLC</span>
+  <div style="display:flex;gap:1.5rem;"><a href="from-you.html">← prev</a><a href="contact.html">next →</a></div>
+</footer>
+
+</body>
+</html>
